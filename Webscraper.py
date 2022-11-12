@@ -16,7 +16,8 @@ def getDiningHall(name):
     for i in range(len(allList)):
         if allList[i]["Location_Name"] == name:
             if allList[i]["Menu_Category_Number"] not in forbiddenNumbers and allList[i]["Selling_Price"][:-2] != ".00":
-                diningList.append([allList[i]["Meal_Name"],allList[i]["Recipe_Print_As_Name"], allList[i]["Selling_Price"][:-2]])
+                dictionary = {"Meal Time":allList[i]["Meal_Name"], "Meal Name":allList[i]["Recipe_Print_As_Name"], "Meal Price": allList[i]["Selling_Price"][:-2]}
+                diningList.append(dictionary)
     return json.dumps(diningList)
 
 
