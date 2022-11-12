@@ -2,7 +2,7 @@ import requests
 import json
 
 diningHalls = {"Lower Live": 21, "Carney's ": 23, "Stuart Hall": 28}
-def getURL(name):
+def getDiningHall(name):
     forbiddenNumbers = []
     if name == "Lower Live":
         forbiddenNumbers = ["95", "41", "28", "04", "09", "27", "05", "97", "31"]
@@ -20,6 +20,6 @@ def getURL(name):
     return json.dumps(diningList)
 
 
-print(getURL("Lower Live"))
+print(getDiningHall("Lower Live"))
 
 
