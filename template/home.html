@@ -1,0 +1,50 @@
+<!-- This is the template file-->
+
+<!doctype html>
+<html>
+<head>
+  <title>BC Bites</title>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/home.css') }}" />
+  <div class="Header">
+  <h1>BC Bites</h1>
+  </div>
+  <div class="Voting">↓&nbsp&nbsp&nbsp&nbspVote&nbsp&nbsp&nbsp&nbsp↓</div>
+</head>
+<body>
+  <main>
+    <div class="Item1">
+      <form action="/vote" method="post">
+        <button type="submit" class="ItemButton" name="vote" value = "{{ arrItem }}"> {{ Item1 }} </button>
+      </form>
+    </div>
+    <div class="Item2">
+      <form action="/vote" method="post">
+        <button type="submit" class="ItemButton" name="vote" value = "{{ arrItem2 }}"> {{ Item2 }} </button>
+      </form>
+    </div>
+  </main>
+  <h3>Form</h3>
+  <!-- see web.py for form action - method post-->
+  <form action="/text" method="post">
+    Input text:<br>
+    <input type="text" name="text_input" value="">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  <form action="/reset" method="post">
+    <input type="submit" value="Reset">
+  </form>
+
+  <div id='foo'>
+    <br>
+    <!-- how to call variables in flask, injecting python variables -->
+    {% for comment in comments %}
+    <div class="row">
+    <h1>
+      {{ comment }} 
+    </h1>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

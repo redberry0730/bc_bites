@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
+.Header {
+    font-size: 50px;
+    color: white;
+    background-color: Black;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+.Voting {
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background-color: #c1a735;
+}
+h1 {
+    font-size: 40px;
+    color: white;
+    background: rgb(96, 35, 35);
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+h2 {
+    font-size: 40px;
+    color: white;
+    background:rgb(96, 35, 35);
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+p {
+    color: red;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+body > main {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 15rem;
+    gap: 8px;
+}
+
+.ItemButton {
+    font-size: 40px;
+    color: white;
+    background: rgb(96, 35, 35);
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+
+    border: none;
+    cursor: pointer;
+}
+
+.Popularity {
+    visibility: hidden;
+}
+
+/* Makes button darker when you hover over it */
+.ItemButton:hover {
+    background: rgb(60, 22, 22);
+}
+
+.ItemButton:active {
+    transform: (0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
