@@ -84,7 +84,7 @@ def get_current_menu(dining_hall):
     else:
         return dumps(list(get_dinner(dining_hall)))
 
-lower.update_one({"Meal Name": "Cod Caprese"}, {"$inc": { "Votes": 1 }})
+#lower.update_one({"Meal Name": "Cod Caprese"}, {"$inc": { "Votes": 1 }})
 
 #Dinner 4:30 - 8:30
 #Lunch 11:00 - 2:30
