@@ -14,6 +14,14 @@ def run():
 @app.route('/dining', methods=['GET', 'POST']) 
 def dining():
     if request.method == 'POST':
+        getName = request.form['dining']
+        getNameArr = getName.split(", ")
+        if getNameArr[1] == "carney":
+            MongoDB.carney.update_one({"_id": getNameArr[0]}, {"$inc": { "Votes": 1 }})
+        if getNameArr[1] == "lower":
+            MongoDB.lower.update_one({"_id": getNameArr[0]}, {"$inc": { "Votes": 1 }})
+        if getNameArr[1] == "stuart":
+            MongoDB.stuart.update_one({"_id": getNameArr[0]}, {"$inc": { "Votes": 1 }})
         return redirect('/thankyou')
     carney = MongoDB.menu_format(MongoDB.carney)
     lower = MongoDB.menu_format(MongoDB.lower)
