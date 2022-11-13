@@ -13,6 +13,8 @@ def run():
 
 @app.route('/carney', methods=['GET', 'POST']) 
 def carney():
+    if request.method == 'POST':
+        return redirect('/thankyou')
     return render_template("Page-1.html", data = [1,2,3,4,5,6,7,8])
 
 @app.route('/thankyou', methods=['GET', 'POST']) 
