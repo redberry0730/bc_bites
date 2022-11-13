@@ -60,13 +60,13 @@ def get_dinner(dining_hall):
     return dinner
 
 def get_lunch(dining_hall):
-    lunch = dining_hall.find({"Meal Time": "DINNER"})
+    lunch = dining_hall.find({"Meal Time": "LUNCH"})
     for item in lunch:
         print(item)
     return lunch
 
 def get_breakfast(dining_hall):
-    breakfast = dining_hall.find({"Meal Time": "DINNER"})
+    breakfast = dining_hall.find({"Meal Time": "BREAKFAST"})
     for item in breakfast:
         print(item)
     return breakfast
