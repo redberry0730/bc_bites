@@ -124,11 +124,10 @@ def menu_format(dining_hall):
     a = json.loads(a)
     arr1 = []
     for i in a:
-        arr1.append([i["Meal Time"], i["Meal Name"], i["Meal Price"], i["Votes"], i["URL"], i["_id"]])
+        arr1.append([i["Meal Time"], i["Meal Name"], i["Meal Price"], i["Votes"], i["URL"], i["_id"]["$oid"]])
     return arr1
 
 def menu_pop(dining_hall):
     a = get_most_voted(dining_hall)
     a = json.loads(a)[0]
-    return [a["Meal Time"], a["Meal Name"], a["Meal Price"], a["Votes"], a["URL"], a["_id"]]
-print(menu_pop(lower))
+    return [a["Meal Time"], a["Meal Name"], a["Meal Price"], a["Votes"], a["URL"], a["_id"]["$oid"]]
