@@ -2,30 +2,18 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-home = True
 
 @app.route('/', methods=['GET', 'POST']) 
 def index():
-    global home
-    if type(home) != bool:
-        if request.method == 'POST':
-            return redirect("/carney")
-    if request.method == 'POST':
-        return redirect("/carney")
-    request.method = None
     return render_template('home.html')
+
+@app.route('/run', methods=['GET', 'POST']) 
+def run():
+    return redirect('/carney')
 
 @app.route('/carney', methods=['GET', 'POST']) 
 def carney():
     return render_template("Page-1.html")
-    
-@app.route('/lower', methods=['GET', 'POST']) 
-def lower():
-    return render_template("Lower.html")
-
-@app.route('/stuart', methods=['GET', 'POST']) 
-def stuart():
-    return render_template("Stuart.html")
 
 @app.route('/thankyou', methods=['GET', 'POST']) 
 def thankyou():
