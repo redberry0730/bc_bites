@@ -88,7 +88,6 @@ def get_most_voted(dining_hall):
     most_votes = dining_hall.find().sort("Votes", -1).limit(1)
     return dumps(list(most_votes))
 
-
 #lower.update_one({"Meal Name": "Cod Caprese"}, {"$inc": { "Votes": 1 }})
 
 #Dinner 4:30 - 8:30
@@ -116,3 +115,9 @@ def menu_format(dining_hall):
     for i in a:
         arr1.append([i["Meal Time"], i["Meal Name"], i["Meal Price"], i["Votes"], i["URL"], i["_id"]])
     return arr1
+
+def menu_pop(dining_hall):
+    a = get_most_voted(dining_hall)
+    a = json.loads(a)[0]
+    return [a["Meal Time"], a["Meal Name"], a["Meal Price"], a["Votes"], a["URL"], a["_id"]]
+print(menu_pop(lower))
