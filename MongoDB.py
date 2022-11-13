@@ -85,8 +85,10 @@ def get_current_menu(dining_hall):
         return dumps(list(get_dinner(dining_hall)))
 
 def get_most_voted(dining_hall):
-    most_votes = dining_hall.find().sort({"Votes", -1}).limit(1)
-    return most_votes
+    most_votes = dining_hall.find().sort("Votes", -1).limit(1)
+    return most_votes[0]
+
+print(get_most_voted(carney))
 
 #lower.update_one({"Meal Name": "Cod Caprese"}, {"$inc": { "Votes": 1 }})
 
