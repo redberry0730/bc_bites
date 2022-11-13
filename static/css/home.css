@@ -1,5 +1,5 @@
  .u-section-1 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("studentDiningemployeesCC.jpg");
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("images/studentDiningemployeesCC.jpg");
   background-position: 50% 50%;
 }
 
@@ -67,11 +67,11 @@
 }
 
 .u-section-3 .u-sheet-1 {
-  min-height: 472px;
+  min-height: 496px;
 }
 
 .u-section-3 .u-layout-wrap-1 {
-  margin: 0 0 40px;
+  margin: 24px 0 40px;
 }
 
 .u-section-3 .u-layout-cell-1 {
@@ -359,13 +359,11 @@
 }
 
 .u-section-5 .u-sheet-1 {
-  min-height: 382px;
+  min-height: 481px;
 }
 
 .u-section-5 .u-layout-wrap-1 {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  position: relative;
+  margin: 21px 0 60px;
 }
 
 .u-section-5 .u-layout-cell-1 {
@@ -403,7 +401,13 @@
 
 @media (max-width: 1199px) {
   .u-section-5 .u-sheet-1 {
-    min-height: 312px;
+    min-height: 411px;
+  }
+
+  .u-section-5 .u-layout-wrap-1 {
+    position: relative;
+    margin-right: initial;
+    margin-left: initial;
   }
 
   .u-section-5 .u-layout-cell-1 {
@@ -421,7 +425,7 @@
 
 @media (max-width: 991px) {
   .u-section-5 .u-sheet-1 {
-    min-height: 235px;
+    min-height: 334px;
   }
 
   .u-section-5 .u-layout-cell-1 {
@@ -439,7 +443,7 @@
 
 @media (max-width: 767px) {
   .u-section-5 .u-sheet-1 {
-    min-height: 462px;
+    min-height: 561px;
   }
 
   .u-section-5 .u-container-layout-1 {
@@ -468,6 +472,8 @@
 
   .u-section-5 .u-layout-wrap-1 {
     margin-top: 27px;
+    margin-right: initial;
+    margin-left: initial;
   }
 
   .u-section-5 .u-layout-cell-2 {
