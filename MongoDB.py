@@ -29,11 +29,21 @@ def refresh_menu():
 
     #puts new data into collections 
     if carney_items:
-        carney.insert_many(carney_items)
+        try:
+            carney.insert_many(carney_items)
+        except pymongo.errors.BulkWriteError:
+            print("Found Duplicate")
+
     if lower_items:
-        lower.insert_many(lower_items)
+        try:
+            lower.insert_many(lower_items)
+        except pymongo.errors.BulkWriteError:
+            print("Found Duplicate")
     if stuart_items:
-        stuart.insert_many(stuart_items)
+        try:
+            stuart.insert_many(stuart_items)
+        except pymongo.errors.BulkWriteError:
+            print("Found Duplicate")
 
 refresh_menu()
 
@@ -41,16 +51,19 @@ def get_dinner(dining_hall):
     dinner = dining_hall.find({"Meal Time": "DINNER"})
     for item in dinner:
         print(item)
+    return dinner
 
 def get_lunch(dining_hall):
-    dinner = dining_hall.find({"Meal Time": "DINNER"})
-    for item in dinner:
+    lunch = dining_hall.find({"Meal Time": "DINNER"})
+    for item in lunch:
         print(item)
+    return lunch
 
 def get_breakfast(dining_hall):
-    dinner = dining_hall.find({"Meal Time": "DINNER"})
-    for item in dinner:
+    breakfast = dining_hall.find({"Meal Time": "DINNER"})
+    for item in breakfast:
         print(item)
+    return breakfast
 
 def get_current_menu(dining_hall):
     now = datetime.datetime.now()
@@ -64,7 +77,7 @@ def get_current_menu(dining_hall):
     else:
         get_dinner(dining_hall)
 
-get_current_menu(stuart)
+get_current_menu(lower)
 
 #Dinner 4:30 - 8:30
 #Lunch 11:00 - 2:30
