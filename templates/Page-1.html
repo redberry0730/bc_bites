@@ -87,17 +87,18 @@
                         <th class="u-border-1 u-border-custom-color-2 u-table-cell">Vote Selection</th>
                       </tr>
                     </thead>
-                    {% for item in data %}
+                    {% for i in range(data1 | length) %}
                     <tbody class="u-table-body">
                       <tr style="height: 214px;">
-                        <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
                         <td class="u-border-1 u-border-grey-30 u-table-cell">
-                          <form action = "/carney" method = "post">
+                          <img src = {{data1[i][4]}}>
+                        </td>
+                        <td class="u-border-1 u-border-grey-30 u-table-cell">{{data1[i][1]}}</td>
+                        <td class="u-border-1 u-border-grey-30 u-table-cell">{{data1[i][2]}}</td>
+                        <td class="u-border-1 u-border-grey-30 u-table-cell">
+                          <form action = "/dining" method = "post">
                             <button class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-custom-color-3 u-radius-5 u-btn-1">Vote</button>
                           </form>
-                        </td>
                       </tr>
                     </tbody>
                     {%endfor%}
@@ -149,14 +150,16 @@
                         <th class="u-border-1 u-border-custom-color-2 u-table-cell">Vote Selection</th>
                       </tr>
                     </thead>
-                    {% for item in data %}
+                    {% for i in range(data2 | length) %}
                     <tbody class="u-table-body">
                       <tr style="height: 214px;">
-                        <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
                         <td class="u-border-1 u-border-grey-30 u-table-cell">
-                          <form action = "/carney" method = "post">
+                          <img src = {{data2[i][4]}}>
+                        </td>
+                        <td class="u-border-1 u-border-grey-30 u-table-cell">{{data2[i][1]}}</td>
+                        <td class="u-border-1 u-border-grey-30 u-table-cell">{{data2[i][2]}}</td>
+                        <td class="u-border-1 u-border-grey-30 u-table-cell">
+                          <form action = "/dining" method = "post">
                             <button class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-custom-color-3 u-radius-5 u-btn-1">Vote</button>
                           </form>
                       </tr>
@@ -210,17 +213,18 @@
                         <th class="u-border-1 u-border-custom-color-2 u-table-cell">Vote Selection</th>
                       </tr>
                     </thead>
-                    {% for item in data %}
+                    {% for i in range(data3 | length) %}
                     <tbody class="u-table-body">
                       <tr style="height: 214px;">
-                        <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
                         <td class="u-border-1 u-border-grey-30 u-table-cell">
-                          <form action = "/carney" method = "post">
+                          <img src = {{data3[i][4]}}>
+                        </td>
+                        <td class="u-border-1 u-border-grey-30 u-table-cell">{{data3[i][1]}}</td>
+                        <td class="u-border-1 u-border-grey-30 u-table-cell">{{data3[i][2]}}</td>
+                        <td class="u-border-1 u-border-grey-30 u-table-cell">
+                          <form action = "/dining" method = "post">
                             <button class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-custom-color-3 u-radius-5 u-btn-1">Vote</button>
                           </form>
-                        </td>
                       </tr>
                     </tbody>
                     {%endfor%}
@@ -237,16 +241,4 @@
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-b29e"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1"> Created by Yeon Jae Cho, Sebastian Pucher, Eliot Yoon, Andrew Boessen</p>
       </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/landing-page" target="_blank">
-        <span>Free Landing Page</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.cloud" target="_blank">
-        <span>Free Website Builder</span>
-      </a>. 
-    </section>
-  
 </body></html>

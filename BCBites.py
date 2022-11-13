@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-
+import MongoDB
 app = Flask(__name__)
 
 
@@ -9,13 +9,17 @@ def index():
 
 @app.route('/run', methods=['GET', 'POST']) 
 def run():
-    return redirect('/carney')
+    return redirect('/dining')
 
-@app.route('/carney', methods=['GET', 'POST']) 
-def carney():
+@app.route('/dining', methods=['GET', 'POST']) 
+def dining():
     if request.method == 'POST':
         return redirect('/thankyou')
-    return render_template("Page-1.html", data = [1,2,3,4,5,6,7,8])
+    carney = MongoDB.menu_format(MongoDB.carney)
+    lower = MongoDB.menu_format(MongoDB.lower)
+    stuart = MongoDB.menu_format(MongoDB.stuart)
+    print(carney)
+    return render_template("Page-1.html", data1 = carney, data2 = lower, data3 = stuart)
 
 @app.route('/thankyou', methods=['GET', 'POST']) 
 def thankyou():

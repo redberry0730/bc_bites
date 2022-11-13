@@ -2,6 +2,7 @@ from datetime import date
 from datetime import time
 from datetime import datetime
 import pymongo
+import json
 from pymongo import MongoClient
 from bson.json_util import dumps, loads
 
@@ -90,4 +91,16 @@ print(get_current_menu(lower))
 #Lunch 11:00 - 2:30
 #Breakfast 9:00 - 11:00
 
-id = [{"_id": {"$oid": "6370813ff02cae1f6f1ea8de"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Cage Free Hard Boiled Egg", "Meal Price": "1.49", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs_NR5DjsdjyU90vOqVWjpX2kEIzetJ8b8wz3K2y1e45a4veEMh7oj6HF5aq4&s"}, {"_id": {"$oid": "6370813ff02cae1f6f1ea8df"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Chocolate Chip Oatmeal Pancakes", "Meal Price": "2.59", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdtxPD0HffocDs52Rfdw5eJ4-2vnSywduHNkg5SnGGF2JDohJOi4cof7COasI&s"}, {"_id": {"$oid": "6370813ff02cae1f6f1ea8e0"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Scrambled Eggs", "Meal Price": "4.39", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLzCeimFKaQv1duOiiy0rHmrnbr0vmaUY-wZ9vDP1DkpxqBGiVINVDb1qOZA&s"}, {"_id": {"$oid": "6370813ff02cae1f6f1ea8e1"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Cage Free 2 Egg Omelet Made to Order", "Meal Price": "8.99", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFoLSEO_XINZHM8BwYNn_nXKdQjrFb4rc0Wym1lNc0sFCvC-D4dQMZJCvVrB8&s"}, {"_id": {"$oid": "6370813ff02cae1f6f1ea8e2"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Egg White Omelet", "Meal Price": "8.99", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpmpO5lXDWonu-GYtl2jUalh628Z1MEfL6Qk6dmwR3cIRo3qyBCeZEYKSf26g&s"}, {"_id": {"$oid": "6370813ff02cae1f6f1ea8e3"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Tofu Scramble", "Meal Price": "4.39", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo-bjq4oUzkMG-Z3i2VRReOebWaQQV5uAkJVrFoFVMrI6KDW48fryKb2XppQ&s"}]
+#id = [{"_id": {"$oid": "6370813ff02cae1f6f1ea8de"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Cage Free Hard Boiled Egg", "Meal Price": "1.49", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs_NR5DjsdjyU90vOqVWjpX2kEIzetJ8b8wz3K2y1e45a4veEMh7oj6HF5aq4&s"}, {"_id": {"$oid": "6370813ff02cae1f6f1ea8df"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Chocolate Chip Oatmeal Pancakes", "Meal Price": "2.59", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdtxPD0HffocDs52Rfdw5eJ4-2vnSywduHNkg5SnGGF2JDohJOi4cof7COasI&s"}, {"_id": {"$oid": "6370813ff02cae1f6f1ea8e0"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Scrambled Eggs", "Meal Price": "4.39", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLzCeimFKaQv1duOiiy0rHmrnbr0vmaUY-wZ9vDP1DkpxqBGiVINVDb1qOZA&s"}, {"_id": {"$oid": "6370813ff02cae1f6f1ea8e1"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Cage Free 2 Egg Omelet Made to Order", "Meal Price": "8.99", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFoLSEO_XINZHM8BwYNn_nXKdQjrFb4rc0Wym1lNc0sFCvC-D4dQMZJCvVrB8&s"}, {"_id": {"$oid": "6370813ff02cae1f6f1ea8e2"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Egg White Omelet", "Meal Price": "8.99", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpmpO5lXDWonu-GYtl2jUalh628Z1MEfL6Qk6dmwR3cIRo3qyBCeZEYKSf26g&s"}, {"_id": {"$oid": "6370813ff02cae1f6f1ea8e3"}, "Serve_Date": "11/12/2022", "Meal Time": "BREAKFAST", "Meal Name": "Tofu Scramble", "Meal Price": "4.39", "Votes": 0, "URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo-bjq4oUzkMG-Z3i2VRReOebWaQQV5uAkJVrFoFVMrI6KDW48fryKb2XppQ&s"}]
+
+#for i in id:
+#    print([i["Meal Name"], i["Meal Price"], i["Votes"], i["URL"]])
+
+def menu_format(dining_hall):
+    a = get_current_menu(dining_hall)
+    a = json.loads(a)
+    arr = []
+    for i in a:
+        arr.append([i["Meal Time"], i["Meal Name"], i["Meal Price"], i["Votes"], i["URL"]])
+    return arr
+
