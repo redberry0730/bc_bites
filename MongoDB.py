@@ -3,6 +3,7 @@ from datetime import time
 from datetime import datetime
 import pymongo
 from pymongo import MongoClient
+from bson.json_util import dumps, loads
 
 from Webscraper import getDiningHall
 #make cleint and root database
@@ -55,20 +56,20 @@ refresh_menu()
 
 def get_dinner(dining_hall):
     dinner = dining_hall.find({"Meal Time": "DINNER"})
-    for item in dinner:
-        print(item)
+    #for item in dinner:
+     #   print(item)
     return dinner
 
 def get_lunch(dining_hall):
     lunch = dining_hall.find({"Meal Time": "LUNCH"})
-    for item in lunch:
-        print(item)
+    #for item in lunch:
+      #  print(item)
     return lunch
 
 def get_breakfast(dining_hall):
     breakfast = dining_hall.find({"Meal Time": "BREAKFAST"})
-    for item in breakfast:
-        print(item)
+    #for item in breakfast:
+     #   print(item)
     return breakfast
 
 def get_current_menu(dining_hall):
@@ -77,14 +78,14 @@ def get_current_menu(dining_hall):
     today2 = now.replace(hour=20, minute=30, second=0, microsecond=0)
 
     if now < today11:
-        get_breakfast(dining_hall)
+        return dumps(list(get_breakfast(dining_hall)))
     elif now < today2:
-        get_lunch(dining_hall)
+        return dumps(list(get_lunch(dining_hall)))
     else:
-        get_dinner(dining_hall)
+        return dumps(list(get_dinner(dining_hall)))
 
-#lower.update_one({"Meal Name": "Cod Caprese"}, {"$set": { "Votes": 10 }})
-get_current_menu(stuart)
+#lower.update_one({"Meal Name": "Cod Caprese"}, {"$inc": { "Votes": 1 }})
+#print(get_current_menu(lower))
 
 #Dinner 4:30 - 8:30
 #Lunch 11:00 - 2:30
