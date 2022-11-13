@@ -24,7 +24,7 @@ def refresh_menu():
     lower_items = getDiningHall("Lower Live")
     carney_items = getDiningHall("Carney's ")
     stuart_items = getDiningHall("Stuart Hall")
-
+    
     #clears collections if new day
     first = lower_items[0]
     first_time = datetime.strptime(first["Serve_Date"], "%m/%d/%Y")
@@ -52,8 +52,6 @@ def refresh_menu():
         except pymongo.errors.BulkWriteError:
             print("Found Duplicate")
 
-refresh_menu()
-
 def get_dinner(dining_hall):
     dinner = dining_hall.find({"Meal Time": "DINNER"})
     #for item in dinner:
@@ -73,6 +71,7 @@ def get_breakfast(dining_hall):
     return breakfast
 
 def get_current_menu(dining_hall):
+    #refresh_menu()
     now = datetime.now()
     today11 = now.replace(hour=11, minute=0, second=0, microsecond=0)
     today2 = now.replace(hour=20, minute=30, second=0, microsecond=0)
@@ -85,7 +84,7 @@ def get_current_menu(dining_hall):
         return dumps(list(get_dinner(dining_hall)))
 
 #lower.update_one({"Meal Name": "Cod Caprese"}, {"$inc": { "Votes": 1 }})
-#print(get_current_menu(lower))
+print(get_current_menu(lower))
 
 #Dinner 4:30 - 8:30
 #Lunch 11:00 - 2:30

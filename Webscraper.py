@@ -1,5 +1,6 @@
 import requests
 import json
+from food_image import get_food_image
 
 diningHalls = {"Lower Live": 21, "Carney's ": 23, "Stuart Hall": 28}
 def getDiningHall(name):
@@ -16,7 +17,7 @@ def getDiningHall(name):
     for i in range(len(allList)):
         if allList[i]["Location_Name"] == name:
             if allList[i]["Menu_Category_Number"] not in forbiddenNumbers and allList[i]["Selling_Price"][:-2] != ".00":
-                dictionary = {"Serve_Date":allList[i]["Serve_Date"], "Meal Time":allList[i]["Meal_Name"], "Meal Name":allList[i]["Recipe_Print_As_Name"], "Meal Price": allList[i]["Selling_Price"][:-2], "Votes": 0}
+                dictionary = {"Serve_Date":allList[i]["Serve_Date"], "Meal Time":allList[i]["Meal_Name"], "Meal Name":allList[i]["Recipe_Print_As_Name"], "Meal Price": allList[i]["Selling_Price"][:-2], "Votes": 0, "URL": get_food_image(allList[i]["Recipe_Print_As_Name"])}
                 diningList.append(dictionary)
     return diningList
 

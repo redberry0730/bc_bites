@@ -10,4 +10,3 @@ def get_food_image(food_name):
     soup = BeautifulSoup(htmldata, 'html.parser') 
     item = soup.find_all('img')[1:2]
     return item[0]['src']
-
