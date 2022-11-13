@@ -13,7 +13,7 @@ def run():
 
 @app.route('/carney', methods=['GET', 'POST']) 
 def carney():
-    return render_template("Page-1.html")
+    return render_template("Page-1.html", data = [1,2,3,4,5,6,7,8])
 
 @app.route('/thankyou', methods=['GET', 'POST']) 
 def thankyou():
