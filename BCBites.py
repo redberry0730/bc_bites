@@ -17,7 +17,7 @@ def index():
 
 @app.route('/carney', methods=['GET', 'POST']) 
 def carney():
-    return render_template("Carney.html")
+    return render_template("Page-1.html")
     
 @app.route('/lower', methods=['GET', 'POST']) 
 def lower():
