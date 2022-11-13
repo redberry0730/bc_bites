@@ -17,7 +17,7 @@ def lower():
     return render_template("Lower.html")
 
 @app.route('/stuart', methods=['GET', 'POST']) 
-def carney():
+def stuart():
     return render_template("Stuart.html")
 
 if __name__ == '__main__':
