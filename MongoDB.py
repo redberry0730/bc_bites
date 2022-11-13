@@ -1,4 +1,6 @@
-import datetime
+from datetime import date
+from datetime import time
+from datetime import datetime
 import pymongo
 from pymongo import MongoClient
 
@@ -12,20 +14,24 @@ carney = db.carney
 lower = db.lower
 stuart = db.stuart
 
-carney.create_index([('ID', pymongo.ASCENDING)], unique=True)
-lower.create_index([('ID', pymongo.ASCENDING)], unique=True)
-stuart.create_index([('ID', pymongo.ASCENDING)], unique=True)
+carney.create_index([('Meal Name', 1), ('Meal Time', 1)], unique=True)
+lower.create_index([('Meal Name', 1), ('Meal Time', 1)], unique=True)
+stuart.create_index([('Meal Name', 1), ('Meal Time', 1)], unique=True)
 
 def refresh_menu():
-    #clears collections
-    carney.delete_many({})
-    lower.delete_many({})
-    stuart.delete_many({})
-
     #gets new data
     lower_items = getDiningHall("Lower Live")
     carney_items = getDiningHall("Carney's ")
     stuart_items = getDiningHall("Stuart Hall")
+
+    #clears collections if new day
+    first = lower_items[0]
+    first_time = datetime.strptime(first["Serve_Date"], "%m/%d/%Y")
+    if date.today() > first_time.date():
+        print("Clearing All")
+        carney.delete_many({})
+        lower.delete_many({})
+        stuart.delete_many({})
 
     #puts new data into collections 
     if carney_items:
@@ -66,7 +72,7 @@ def get_breakfast(dining_hall):
     return breakfast
 
 def get_current_menu(dining_hall):
-    now = datetime.datetime.now()
+    now = datetime.now()
     today11 = now.replace(hour=11, minute=0, second=0, microsecond=0)
     today2 = now.replace(hour=20, minute=30, second=0, microsecond=0)
 
@@ -77,6 +83,7 @@ def get_current_menu(dining_hall):
     else:
         get_dinner(dining_hall)
 
+#lower.update_one({"Meal Name": "Cod Caprese"}, {"$set": { "Votes": 10 }})
 get_current_menu(lower)
 
 #Dinner 4:30 - 8:30
