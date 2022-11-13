@@ -84,7 +84,7 @@ def get_current_menu(dining_hall):
         get_dinner(dining_hall)
 
 #lower.update_one({"Meal Name": "Cod Caprese"}, {"$set": { "Votes": 10 }})
-get_current_menu(lower)
+get_current_menu(stuart)
 
 #Dinner 4:30 - 8:30
 #Lunch 11:00 - 2:30
