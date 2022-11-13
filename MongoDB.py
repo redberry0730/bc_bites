@@ -109,5 +109,5 @@ def menu_format(dining_hall):
     a = json.loads(a)
     arr1 = []
     for i in a:
-        arr1.append([i["Meal Time"], i["Meal Name"], i["Meal Price"], i["Votes"], i["URL"]])
+        arr1.append([i["Meal Time"], i["Meal Name"], i["Meal Price"], i["Votes"], i["URL"], i["_id"]])
     return arr1

@@ -17,11 +17,11 @@ def dining():
         getName = request.form['dining']
         getNameArr = getName.split(", ")
         if getNameArr[1] == "carney":
-            MongoDB.carney.update_one({"Meal Name": getNameArr[0]}, {"$inc": { "Votes": 1 }})
+            MongoDB.carney.update_one({"_id": getNameArr[0]}, {"$inc": { "Votes": 1 }})
         if getNameArr[1] == "lower":
-            MongoDB.lower.update_one({"Meal Name": getNameArr[0]}, {"$inc": { "Votes": 1 }})
+            MongoDB.lower.update_one({"_id": getNameArr[0]}, {"$inc": { "Votes": 1 }})
         if getNameArr[1] == "stuart":
-            MongoDB.stuart.update_one({"Meal Name": getNameArr[0]}, {"$inc": { "Votes": 1 }})
+            MongoDB.stuart.update_one({"_id": getNameArr[0]}, {"$inc": { "Votes": 1 }})
         return redirect('/thankyou')
     carney = MongoDB.menu_format(MongoDB.carney)
     lower = MongoDB.menu_format(MongoDB.lower)
