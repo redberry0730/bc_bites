@@ -85,9 +85,19 @@ def get_current_menu(dining_hall):
         return dumps(list(get_dinner(dining_hall)))
 
 def get_most_voted(dining_hall):
-    most_votes = dining_hall.find().sort("Votes", -1).limit(1)
-    return dumps(list(most_votes))
+    now = datetime.now()
+    today11 = now.replace(hour=11, minute=0, second=0, microsecond=0)
+    today2 = now.replace(hour=20, minute=30, second=0, microsecond=0)
 
+    if now < today11:
+        cur_menu = get_breakfast(dining_hall)
+    elif now < today2:
+        cur_menu = get_lunch(dining_hall)
+    else:
+        cur_menu = get_dinner(dining_hall)
+
+    most_votes = cur_menu.sort("Votes", -1).limit(1)
+    return dumps(list(most_votes))
 
 #lower.update_one({"Meal Name": "Cod Caprese"}, {"$inc": { "Votes": 1 }})
 
