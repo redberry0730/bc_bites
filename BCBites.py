@@ -18,7 +18,6 @@ def dining():
     carney = MongoDB.menu_format(MongoDB.carney)
     lower = MongoDB.menu_format(MongoDB.lower)
     stuart = MongoDB.menu_format(MongoDB.stuart)
-    print(carney)
     return render_template("Page-1.html", data1 = carney, data2 = lower, data3 = stuart)
 
 @app.route('/thankyou', methods=['GET', 'POST']) 
