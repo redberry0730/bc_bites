@@ -1,7 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for
 import MongoDB
+import time
+import atexit
+from apscheduler.schedulers.background import BackgroundScheduler
+
 app = Flask(__name__)
 
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=MongoDB.refresh_menu, trigger="interval", seconds=3600)
+scheduler.start()
+
+# Shut down the scheduler when exiting the app
+atexit.register(lambda: scheduler.shutdown())
 
 @app.route('/', methods=['GET', 'POST']) 
 def index():
