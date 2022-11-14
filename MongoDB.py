@@ -27,8 +27,8 @@ def refresh_menu():
     stuart_items = getDiningHall("Stuart Hall")
     
     #clears collections if new day
-    first = lower_items[0]
-    first_time = datetime.strptime(first["Serve_Date"], "%m/%d/%Y")
+    first = lower.find_one({})["Serve_Date"]
+    first_time = datetime.strptime(first, "%m/%d/%Y")
     if date.today() > first_time.date():
         print("Clearing All")
         carney.delete_many({})
@@ -131,3 +131,6 @@ def menu_pop(dining_hall):
     a = get_most_voted(dining_hall)
     a = json.loads(a)[0]
     return [a["Meal Time"], a["Meal Name"], a["Meal Price"], a["Votes"], a["URL"], a["_id"]["$oid"]]
+
+if __name__ == "__main__":
+    refresh_menu()
